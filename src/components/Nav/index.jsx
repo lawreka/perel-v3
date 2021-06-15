@@ -12,6 +12,12 @@ export const Nav = () => {
         setMobileNavOpen(!mobileNavOpen);
     }
 
+    const handleNavClick = () => {
+        if (mobileNavOpen) {
+            setMobileNavOpen(false);
+        }
+    }
+
     return (
         <>
             {isMobile && (
@@ -21,11 +27,21 @@ export const Nav = () => {
             )}
             {((isMobile && mobileNavOpen) || !isMobile) && (
                 <NavWrapper>
-                    <Link to="/">Perel</Link>
-                    <Link to="/works">Selected recent works</Link>
-                    <Link to="/links">Links to panels and lectures</Link>
-                    <Link to="/workshops">Workshops</Link>
-                    <Link to="/upcoming">Upcoming appearances</Link>
+                    <Link to="/" onClick={handleNavClick}>
+                        Perel
+                    </Link>
+                    <Link to="/works" onClick={handleNavClick}>
+                        Selected recent works
+                    </Link>
+                    <Link to="/links" onClick={handleNavClick}>
+                        Links to panels and lectures
+                    </Link>
+                    <Link to="/workshops" onClick={handleNavClick}>
+                        Workshops
+                    </Link>
+                    <Link to="/upcoming" onClick={handleNavClick}>
+                        Upcoming appearances
+                    </Link>
                 </NavWrapper>
             )}
         </>
