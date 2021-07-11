@@ -44,12 +44,13 @@ export const MobileNavWrapper = styled.div`
     width: 100%;
     height: 100%;
     padding: 20px;
-    padding-top: 60px;
+    padding-top: 100px;
     display: flex;
     z-index: 2;
     flex-direction: column;
     background-color: #fff;
     overflow: hidden;
+    font-size: 20px;
 
     a {
         color: #000;
