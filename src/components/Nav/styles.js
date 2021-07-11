@@ -10,8 +10,8 @@ export const NavButtonWrapper = styled.div`
 `;
 
 export const NavIcon = styled.div`
-    height: 48px;
-    width: 48px;
+    height: 36px;
+    width: 36px;
 `;
 
 export const NavLink = styled(Link)`
