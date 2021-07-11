@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-
 export const NavButtonWrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     padding: 20px;
     position: relative;
     z-index: 3;
+`;
+
+export const NavIcon = styled.div`
+    height: 48px;
+    width: 48px;
 `;
 
 export const NavLink = styled(Link)`

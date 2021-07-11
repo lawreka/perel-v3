@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 
 import { Hamburger } from './Hamburger';
-import { Close } from './Close';
-import { NavButtonWrapper, DesktopNavWrapper, MobileNavWrapper, NavLink } from './styles';
+import { Close } from './Close';
+import {
+    NavButtonWrapper,
+    DesktopNavWrapper,
+    MobileNavWrapper,
+    NavLink,
+    NavIcon
+} from './styles';
 
 export const Nav = ({ children }) => {
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
@@ -22,11 +28,10 @@ export const Nav = ({ children }) => {
     return (
         <>
             {isMobile && (
-                <NavButtonWrapper>
-                    <div onClick={toggleNav}>
+                <NavButtonWrapper onClick={toggleNav}>
+                    <NavIcon>
                         {mobileNavOpen ? <Close /> : <Hamburger />}
-                    </div>
-                        
+                    </NavIcon>           
                 </NavButtonWrapper>
                 
             )}
