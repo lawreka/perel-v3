@@ -24,10 +24,7 @@ export const Works = () => {
                 <PortfolioSection key={work.key} portfolioContent={work} />
             )}
             
-            <LinkToTop href="/works#top">
-                <div>↑</div>
-                Top
-            </LinkToTop>
+            <LinkToTop href="/works#top">↑</LinkToTop>
         </ScreenWrapper>
     );
 };

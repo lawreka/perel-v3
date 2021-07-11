@@ -28,8 +28,10 @@ export const LinkToTop = styled.a`
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    color: #000;
 
     &:hover {
         text-decoration: underline;
     }
+
 `;

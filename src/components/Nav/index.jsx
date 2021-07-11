@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-import { NavToggleButton, NavWrapper } from './styles';
+import { Hamburger } from './Hamburger';
+import { Close } from './Close';
+import { NavButtonWrapper, DesktopNavWrapper, MobileNavWrapper, NavLink } from './styles';
 
-export const Nav = () => {
+export const Nav = ({ children }) => {
     const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const width = window.innerWidth;
     const isMobile = width < 767;
@@ -21,28 +22,33 @@ export const Nav = () => {
     return (
         <>
             {isMobile && (
-                <NavToggleButton onClick={toggleNav}>
-                    {mobileNavOpen ? `Close Navigation` : `Open Navigation`}
-                </NavToggleButton>
+                <NavButtonWrapper>
+                    <div onClick={toggleNav}>
+                        {mobileNavOpen ? <Close /> : <Hamburger />}
+                    </div>
+                        
+                </NavButtonWrapper>
+                
             )}
-            {((isMobile && mobileNavOpen) || !isMobile) && (
-                <NavWrapper>
-                    <Link to="/" onClick={handleNavClick}>
+            {!isMobile && (
+                <DesktopNavWrapper>
+                    <NavLink to="/" onClick={handleNavClick}>
                         Perel
-                    </Link>
-                    <Link to="/works" onClick={handleNavClick}>
+                    </NavLink>
+                    <NavLink to="/works" onClick={handleNavClick}>
                         Selected recent works
-                    </Link>
-                    <Link to="/links" onClick={handleNavClick}>
-                        Links to panels and lectures
-                    </Link>
-                    <Link to="/workshops" onClick={handleNavClick}>
-                        Workshops
-                    </Link>
-                    <Link to="/upcoming" onClick={handleNavClick}>
-                        Upcoming appearances
-                    </Link>
-                </NavWrapper>
+                    </NavLink>
+                </DesktopNavWrapper>
+            )}
+            {isMobile && mobileNavOpen && (
+                <MobileNavWrapper>
+                    <NavLink to="/" onClick={handleNavClick}>
+                        Perel
+                    </NavLink>
+                    <NavLink to="/works" onClick={handleNavClick}>
+                        Selected recent works
+                    </NavLink>
+                </MobileNavWrapper>
             )}
         </>
     );
